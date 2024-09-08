@@ -1,0 +1,8 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Dom Surfer
+Upstream-Contact: Cas Dijkman <info@cdijkman.nl>
+Source: https://cdijkman.nl
+
+Files: package.json yarn.lock
+Copyright: 2024 Cas Dijkman <info@cdijkman.nl>
+License: GPL-3.0-only
