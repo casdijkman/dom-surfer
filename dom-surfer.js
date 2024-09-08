@@ -49,9 +49,9 @@ export class DomSurfer {
   static isElement (value) {
     // https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType#node_type_constants
     return value !== null &&
-               typeof value === 'object' &&
-               'nodeType' in value &&
-               [Element.ELEMENT_NODE, Element.DOCUMENT_NODE].includes(value.nodeType);
+           typeof value === 'object' &&
+           'nodeType' in value &&
+           [Element.ELEMENT_NODE, Element.DOCUMENT_NODE].includes(value.nodeType);
   }
 
   static assertIsElement (value) {
