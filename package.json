@@ -14,6 +14,10 @@
     "url": "git+https://github.com/casdijkman/dom-surfer.git"
   },
   "main": "dom-surfer.js",
-  "devDependencies": {},
-  "scripts": {}
+  "devDependencies": {
+    "semistandard": "^17.0.0"
+  },
+  "scripts": {
+    "lint": "semistandard"
+  }
 }
