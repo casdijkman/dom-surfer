@@ -1,9 +1,8 @@
 {
   "name": "@casd/dom-surfer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Dom Surfer",
   "author": "Cas Dijkman <info@cdijkman.nl> (https://cdijkman.nl)",
-  "private": false,
   "keywords": [
     "dom",
     "surfer"
