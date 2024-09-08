@@ -15,6 +15,26 @@ This library is based on the native `document.querySelectorAll()` instead of
 
 Dom Surfer is designed to be a light-weight yet powerful way to interact with DOM elements.
 
+## Example
+
+This example illustrates a simple use case for setting a class on a set of DOM elements.
+Using Dom Surfer, what may take three lines of plain javascript can be a one-liner.
+
+### Plain javascript
+
+```javascript
+document.querySelectorAll('.plain-js div').forEach((element) => {
+  if (Number(element.innerText) < 20) element.classList.add('bg-red');
+});
+```
+
+### Dom Surfer
+
+```javascript
+import $ from '@casd/dom-surfer';
+$('.dom-surfer div').$each(($e) => $e.setClass('bg-red', Number($e.innerText()) < 20));
+```
+
 ## Copyright and license
 
 Code and documentation copyright © 2024 [Cas Dijkman](https://cdijkman.nl).

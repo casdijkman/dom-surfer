@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Dom Surfer implementation example</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    </head>
+    <body style="margin: 0; font-family: sans-serif;">
+        <div class="plain-js" title="Plain javascript">
+            <div>45</div>
+            <div>68</div>
+            <div>41</div>
+            <div>16</div>
+            <div>28</div>
+            <div>92</div>
+            <div>13</div>
+            <div>93</div>
+            <div>16</div>
+            <div>35</div>
+            <div>97</div>
+            <div>83</div>
+            <div>95</div>
+            <div>9</div>
+            <div>70</div>
+            <div>22</div>
+            <div>50</div>
+            <div>18</div>
+            <div>87</div>
+            <div>23</div>
+        </div>
+
+        <div class="dom-surfer" title="Dom Surfer">
+            <div>45</div>
+            <div>68</div>
+            <div>41</div>
+            <div>16</div>
+            <div>28</div>
+            <div>92</div>
+            <div>13</div>
+            <div>93</div>
+            <div>16</div>
+            <div>35</div>
+            <div>97</div>
+            <div>83</div>
+            <div>95</div>
+            <div>9</div>
+            <div>70</div>
+            <div>22</div>
+            <div>50</div>
+            <div>18</div>
+            <div>87</div>
+            <div>23</div>
+        </div>
+
+        <script type="module">
+         /*
+          * Dom Surfer implementation
+          */
+         import $ from 'https://cdn.jsdelivr.net/npm/@casd/dom-surfer@0.0.2/+esm';
+         $('.dom-surfer div').$each(($e) => $e.setClass('bg-red', Number($e.innerText()) < 20))
+
+         /*
+          * Dom Surfer implementation (alternative)
+          */
+         // $('.dom-surfer div').setClass('bg-red', ({ element }) => Number(element.innerText) < 20);
+
+         /*
+          * Plain JS implementation
+          */
+         document.querySelectorAll('.plain-js div').forEach((element) => {
+             if (Number(element.innerText) < 20) element.classList.add('bg-red');
+         });
+        </script>
+
+        <style>
+         body {
+           display: flex;
+
+           & > div::before {
+             font-weight: bold;
+             text-decoration: underline;
+             content: attr(title);
+             display: inline-block;
+             width: 10rem;
+           }
+         }
+
+         div {
+           padding: 0.5rem 1rem;
+           text-align: center;
+         }
+
+         .bg-red {
+           background-color: red;
+         }
+        </style>
+    </body>
+</html>
