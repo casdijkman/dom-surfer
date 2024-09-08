@@ -1,0 +1,19 @@
+{
+  "name": "@casd/dom-surfer",
+  "version": "0.0.1",
+  "description": "Dom Surfer",
+  "author": "Cas Dijkman <info@cdijkman.nl> (https://cdijkman.nl)",
+  "keywords": [
+    "dom",
+    "surfer"
+  ],
+  "homepage": "https://cdijkman.nl/",
+  "license": "GPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/casdijkman/dom-surfer.git"
+  },
+  "main": "dom-surfer.js",
+  "devDependencies": {},
+  "scripts": {}
+}
