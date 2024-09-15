@@ -17,9 +17,9 @@ Dom Surfer is designed to be a light-weight yet powerful way to interact with DO
 
 ### Standard lines of code (SLOC) count
 
-| Dom Surfer | jQuery | Sizzle |
-|------------|--------|--------|
-| 208        | 6,767  | 1,539  |
+| Dom Surfer | jQuery | Sizzle (selector engine only) |
+|------------|--------|-------------------------------|
+| 208        | 6,767  | 1,539                         |
 
 ## Example
 

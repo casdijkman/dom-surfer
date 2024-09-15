@@ -27,7 +27,7 @@ wget https://cdn.jsdelivr.net/npm/sizzle@2.3/dist/sizzle.js &>/dev/null
 cat <<EOF
 ### Standard lines of code (SLOC) count
 
-| Dom Surfer | jQuery | Sizzle |
-|------------|--------|--------|
+| Dom Surfer | jQuery | Sizzle (selector engine only) |
+|------------|--------|-------------------------------|
 | $(print_sloc_count ../dom-surfer.js) | $(print_sloc_count jquery.js) | $(print_sloc_count sizzle.js) |
 EOF
