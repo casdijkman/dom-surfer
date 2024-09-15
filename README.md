@@ -32,7 +32,7 @@ document.querySelectorAll('.plain-js div').forEach((element) => {
 
 ```javascript
 import $ from '@casd/dom-surfer';
-$('.dom-surfer div').$each(($e) => $e.setClass('bg-red', Number($e.innerText()) < 20));
+$('.dom-surfer div').setClass('bg-red', ({ e }) => Number(e.innerText) < 20);
 ```
 
 ## Copyright and license

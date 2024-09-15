@@ -203,7 +203,14 @@ export class DomSurfer {
     }
 
     return this.each((element) => {
-      if (predicate({ element, $element: new DomSurfer(element) })) {
+      if (
+        predicate({
+          element,
+          $element: new DomSurfer(element),
+          e: element,
+          $e: new DomSurfer(element)
+        })
+      ) {
         element.classList.add(cssClass);
       } else {
         element.classList.remove(cssClass);

@@ -55,15 +55,29 @@
 
         <script type="module">
          /*
+            Dom Surfer import from node_modules (needs to be installed in package.json)
+          */
+         // import $ from 'dom-surfer';
+
+         /*
+            Dom Surfer import from content distribution network (CDN)
+         */
+         // import $ from 'https://cdn.jsdelivr.net/npm/@casd/dom-surfer@0.0.3/+esm';
+
+         /*
+            Dom Surfer import locally
+         */
+         import $ from './dom-surfer.js';
+
+         /*
           * Dom Surfer implementation
           */
-         import $ from 'https://cdn.jsdelivr.net/npm/@casd/dom-surfer@0.0.2/+esm';
-         $('.dom-surfer div').$each(($e) => $e.setClass('bg-red', Number($e.innerText()) < 20))
+         $('.dom-surfer div').setClass('bg-red', ({ e }) => Number(e.innerText) < 20);
 
          /*
           * Dom Surfer implementation (alternative)
           */
-         // $('.dom-surfer div').setClass('bg-red', ({ element }) => Number(element.innerText) < 20);
+         // $('.dom-surfer div').$each(($e) => $e.setClass('bg-red', Number($e.innerText()) < 20))
 
          /*
           * Plain JS implementation
