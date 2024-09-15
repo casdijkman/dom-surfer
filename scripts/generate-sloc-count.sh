@@ -23,9 +23,13 @@ wget https://cdn.jsdelivr.net/npm/jquery@3.7/dist/jquery.js &>/dev/null
 [[ -f sizzle.js ]] && rm sizzle.js
 wget https://cdn.jsdelivr.net/npm/sizzle@2.3/dist/sizzle.js &>/dev/null
 
+if [[ ! -f jquery.js ]] || [[ ! -f sizzle.js ]]; then
+    echo "Could not find required files"
+    exit 1
+fi
 
 cat <<EOF
-### Standard lines of code (SLOC) count
+### Source lines of code (SLOC) count
 
 | Dom Surfer | jQuery | Sizzle (selector engine only) |
 |------------|--------|-------------------------------|
