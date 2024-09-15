@@ -29,7 +29,7 @@ if [[ ! -f jquery.js ]] || [[ ! -f sizzle.js ]]; then
 fi
 
 cat <<EOF
-### Source lines of code (SLOC) count
+### Source lines of code (SLOC) comparison
 
 | Dom Surfer | jQuery | Sizzle (selector engine only) |
 |------------|--------|-------------------------------|

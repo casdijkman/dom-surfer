@@ -15,7 +15,7 @@ This library is based on the native `document.querySelectorAll()` instead of
 
 Dom Surfer is designed to be a light-weight yet powerful way to interact with DOM elements.
 
-### Source lines of code (SLOC) count
+### Source lines of code (SLOC) comparison
 
 | Dom Surfer | jQuery | Sizzle (selector engine only) |
 |------------|--------|-------------------------------|
