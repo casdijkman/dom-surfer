@@ -15,6 +15,12 @@ This library is based on the native `document.querySelectorAll()` instead of
 
 Dom Surfer is designed to be a light-weight yet powerful way to interact with DOM elements.
 
+### Standard lines of code (SLOC) count
+
+| Dom Surfer | jQuery | Sizzle |
+|------------|--------|--------|
+| 208        | 6,767  | 1,539  |
+
 ## Example
 
 This example illustrates a simple use case for setting a class on a set of DOM elements.
