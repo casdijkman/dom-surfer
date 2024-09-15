@@ -15,9 +15,11 @@
   },
   "main": "dom-surfer.js",
   "devDependencies": {
+    "browser-sync": "^3.0.2",
     "semistandard": "^17.0.0"
   },
   "scripts": {
-    "lint": "semistandard"
+    "lint": "semistandard",
+    "serve": "browser-sync . --no-notify --index example.html"
   }
 }
