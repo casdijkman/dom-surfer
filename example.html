@@ -7,82 +7,76 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
     </head>
     <body style="margin: 0; font-family: sans-serif;">
-        <div class="plain-js" title="Plain javascript">
-            <div>45</div>
-            <div>68</div>
-            <div>41</div>
-            <div>16</div>
-            <div>28</div>
-            <div>92</div>
-            <div>13</div>
-            <div>93</div>
-            <div>16</div>
-            <div>35</div>
-            <div>97</div>
-            <div>83</div>
-            <div>95</div>
-            <div>9</div>
-            <div>70</div>
-            <div>22</div>
-            <div>50</div>
-            <div>18</div>
-            <div>87</div>
-            <div>23</div>
+        <div title="Plain javascript">
+            <div class="js">45</div>
+            <div class="js">68</div>
+            <div class="js">41</div>
+            <div class="js">16</div>
+            <div class="js">28</div>
+            <div class="js">92</div>
+            <div class="js">13</div>
+            <div class="js">93</div>
+            <div class="js">16</div>
+            <div class="js">35</div>
+            <div class="js">97</div>
+            <div class="js">83</div>
+            <div class="js">95</div>
+            <div class="js">9</div>
+            <div class="js">70</div>
+            <div class="js">22</div>
+            <div class="js">50</div>
+            <div class="js">18</div>
+            <div class="js">87</div>
+            <div class="js">23</div>
         </div>
 
-        <div class="dom-surfer" title="Dom Surfer">
-            <div>45</div>
-            <div>68</div>
-            <div>41</div>
-            <div>16</div>
-            <div>28</div>
-            <div>92</div>
-            <div>13</div>
-            <div>93</div>
-            <div>16</div>
-            <div>35</div>
-            <div>97</div>
-            <div>83</div>
-            <div>95</div>
-            <div>9</div>
-            <div>70</div>
-            <div>22</div>
-            <div>50</div>
-            <div>18</div>
-            <div>87</div>
-            <div>23</div>
+        <div title="Dom Surfer">
+            <div class="ds">45</div>
+            <div class="ds">68</div>
+            <div class="ds">41</div>
+            <div class="ds">16</div>
+            <div class="ds">28</div>
+            <div class="ds">92</div>
+            <div class="ds">13</div>
+            <div class="ds">93</div>
+            <div class="ds">16</div>
+            <div class="ds">35</div>
+            <div class="ds">97</div>
+            <div class="ds">83</div>
+            <div class="ds">95</div>
+            <div class="ds">9</div>
+            <div class="ds">70</div>
+            <div class="ds">22</div>
+            <div class="ds">50</div>
+            <div class="ds">18</div>
+            <div class="ds">87</div>
+            <div class="ds">23</div>
         </div>
 
         <script type="module">
-         /*
-            Dom Surfer import from node_modules (needs to be installed in package.json)
-          */
-         // import $ from 'dom-surfer';
+         /* Dom Surfer import from node modules (needs to be installed in package.json) */
+         // import $ from '@casd/dom-surfer';
 
-         /*
-            Dom Surfer import from content distribution network (CDN)
-         */
+         /* Dom Surfer import from content distribution network (CDN) */
          // import $ from 'https://cdn.jsdelivr.net/npm/@casd/dom-surfer@0.0.3/+esm';
 
-         /*
-            Dom Surfer import locally
-         */
+         /* Dom Surfer import locally */
          import $ from './dom-surfer.js';
 
          /*
           * Dom Surfer implementation
           */
-         $('.dom-surfer div').setClass('bg-red', ({ e }) => Number(e.innerText) < 20);
+         $('.ds').setClass('bg-red', ({ e }) => Number(e.innerText) < 20);
 
          /*
           * Dom Surfer implementation (alternative)
           */
-         // $('.dom-surfer div').$each(($e) => $e.setClass('bg-red', Number($e.innerText()) < 20))
+         // $('.ds').$each(($e) => $e.setClass('bg-red', Number($e.innerText()) < 20));
 
          /*
           * Plain JS implementation
           */
-         document.querySelectorAll('.plain-js div').forEach((element) => {
+         document.querySelectorAll('.js').forEach((element) => {
              if (Number(element.innerText) < 20) element.classList.add('bg-red');
          });
         </script>

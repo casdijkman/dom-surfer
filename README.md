@@ -23,8 +23,8 @@ Using Dom Surfer, what may take three lines of plain javascript can be a one-lin
 ### Plain javascript
 
 ```javascript
-document.querySelectorAll('.plain-js div').forEach((element) => {
-  if (Number(element.innerText) < 20) element.classList.add('bg-red');
+document.querySelectorAll('.js').forEach((element) => {
+    if (Number(element.innerText) < 20) element.classList.add('bg-red');
 });
 ```
 
@@ -32,7 +32,7 @@ document.querySelectorAll('.plain-js div').forEach((element) => {
 
 ```javascript
 import $ from '@casd/dom-surfer';
-$('.dom-surfer div').setClass('bg-red', ({ e }) => Number(e.innerText) < 20);
+$('.ds').setClass('bg-red', ({ e }) => Number(e.innerText) < 20);
 ```
 
 ## Copyright and license
