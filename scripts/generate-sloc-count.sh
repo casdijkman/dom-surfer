@@ -5,6 +5,8 @@
 [[ $(dirname "$(realpath "$0")") != $(pwd) ]] && echo "Run script from it's own directory" && exit 1
 
 [[ ! $(command -v wget) ]] && echo "wget is not installed" && exit 1
+[[ ! $(command -v sloccount) ]] && echo "sloccount is not installed" && exit 1
+[[ ! $(command -v sed) ]] && echo "sed is not installed" && exit 1
 
 function print_sloc_count() {
     local file
@@ -23,7 +25,7 @@ wget https://cdn.jsdelivr.net/npm/jquery@3.7/dist/jquery.js &>/dev/null
 [[ -f sizzle.js ]] && rm sizzle.js
 wget https://cdn.jsdelivr.net/npm/sizzle@2.3/dist/sizzle.js &>/dev/null
 
-if [[ ! -f jquery.js ]] || [[ ! -f sizzle.js ]]; then
+if [[ ! -f ../dom-surfer.js ]] || [[ ! -f jquery.js ]] || [[ ! -f sizzle.js ]]; then
     echo "Could not find required files"
     exit 1
 fi
