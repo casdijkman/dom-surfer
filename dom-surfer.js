@@ -50,6 +50,18 @@ export class DomSurfer {
     return this;
   }
 
+  filter (query) {
+    if (typeof query === 'string') {
+      this.elements = this.elements.filter((element) => element.matches(query));
+    } else if (typeof query === 'function') {
+      this.elements = this.elements.filter((element, index) => query(element, index));
+    } else {
+      console.warn('query should be a string or function', query);
+    }
+
+    return this;
+  }
+
   static isElement (value) {
     // https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType#node_type_constants
     return value !== null &&
