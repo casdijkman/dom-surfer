@@ -70,6 +70,10 @@ export class DomSurfer {
            [Element.ELEMENT_NODE, Element.DOCUMENT_NODE].includes(value.nodeType);
   }
 
+  static isObject (value) {
+    return Object.prototype.toString.call(value) === '[object Object]';
+  }
+
   static assertIsElement (value) {
     const isElement = DomSurfer.isElement(value);
     console.assert(isElement, 'expected to be an element', value, this.value);
@@ -146,6 +150,25 @@ export class DomSurfer {
       return element.dataset[name];
     } else {
       return this.attr(`data-${name}`);
+    }
+  }
+
+  css (value) {
+    const style = this.first()?.style;
+    if (!style) return;
+
+    if (typeof value === 'undefined') {
+      return Array.from(style)
+        .map((key) => ({ key, value: style[key] }))
+        .reduce((accumulator, item) =>
+          Object.assign(accumulator, { [item.key]: item.value }), {}
+        );
+    } else if (typeof value === 'string') {
+      return style[value];
+    } else if (DomSurfer.isObject(value)) {
+      for (const [key, objValue] of Object.entries(value)) {
+        style[key] = objValue ? objValue : null;
+      }
     }
   }
 
