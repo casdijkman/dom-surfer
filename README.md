@@ -19,7 +19,7 @@ Dom Surfer is designed to be a light-weight yet powerful way to interact with DO
 
 | Dom Surfer | jQuery | Sizzle (selector engine only) |
 |------------|--------|-------------------------------|
-| 208        | 6,767  | 1,539                         |
+| 258        | 6,767  | 1,539                         |
 
 ## Example
 
