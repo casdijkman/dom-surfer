@@ -20,11 +20,15 @@ export class DomSurfer {
     if (!Array.isArray(this.elements)) this.elements = [];
 
     if (!value || typeof value === 'boolean') {
-      // Do nothing
+      // Do nothing ¯\_(ツ)_/¯
     } else if (typeof value === 'function') {
       window.addEventListener('DOMContentLoaded', value);
     } else if (typeof value === 'string') {
-      this.elements.push(...Array.from(document.querySelectorAll(value)));
+      if (value.startsWith('<')) {
+        this.add(DomSurfer.elementsFromHtmlString(value));
+      } else {
+        this.add(document.querySelectorAll(value));
+      }
     } else if (DomSurfer.isElement(value)) {
       this.elements.push(value);
     } else if (value instanceof NodeList || value instanceof HTMLCollection) {
@@ -66,6 +70,12 @@ export class DomSurfer {
 
   static isBoolean (value) {
     return value === true || value === false;
+  }
+
+  static elementsFromHtmlString (html = '') {
+    const template = document.createElement('template');
+    template.innerHTML = html.trim();
+    return template.content.children;
   }
 
   hasOneElement () {
@@ -133,8 +143,7 @@ export class DomSurfer {
   }
 
   $parent () {
-    const element = this.first();
-    return new DomSurfer(element.parentElement);
+    return new DomSurfer(this.parent());
   }
 
   children () {
@@ -143,8 +152,7 @@ export class DomSurfer {
   }
 
   $children () {
-    const element = this.first();
-    return new DomSurfer(element.children);
+    return new DomSurfer(this.children());
   }
 
   closest (selector) {
@@ -171,6 +179,20 @@ export class DomSurfer {
     return this.each((element, index) =>
       callback(new DomSurfer(element), index)
     );
+  }
+
+  append (...elements) {
+    return this.each((e) => {
+      elements.forEach((element) => {
+        if (element instanceof DomSurfer) {
+          e.append(...element.elements);
+        } else if (Symbol.iterator in Object(element)) {
+          e.append(...element);
+        } else {
+          e.append(element);
+        }
+      });
+    });
   }
 
   addClass (cssClass) {

@@ -1,6 +1,6 @@
 {
   "name": "@casd/dom-surfer",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Dom Surfer",
   "author": "Cas Dijkman <info@cdijkman.nl> (https://cdijkman.nl)",
   "keywords": [
@@ -20,6 +20,7 @@
   },
   "scripts": {
     "lint": "semistandard",
-    "serve": "browser-sync . --no-notify --index example.html"
+    "serve": "browser-sync . --no-notify --index example.html",
+    "serve:test": "browser-sync . --no-notify --index test.html"
   }
 }
