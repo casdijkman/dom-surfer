@@ -1,0 +1,75 @@
+<!--
+SPDX-FileCopyrightText: 2024 Cas Dijkman
+
+SPDX-License-Identifier: GPL-3.0-only
+-->
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Dom Surfer test page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    </head>
+    <body style="margin: 0; font-family: sans-serif;">
+        <ul>
+            <li>list item 1</li>
+            <li>list item 2</li>
+            <li>list item 3</li>
+            <li>list item 4</li>
+            <li>list item 5</li>
+            <li>list item 6</li>
+        </ul>
+
+        <div style="background-color: red; display: inline-block;">div</div>
+        <div style="background-color: red; display: inline-block;">div</div>
+
+        <script type="module">
+         import $, { DomSurfer } from './dom-surfer.js';
+         import { describe, expect } from './expect.js';
+         Object.assign(window, { $, DomSurfer });
+
+         describe('expect amount of unordered lists on page to be one')
+             .expect($('ul').elements.length).to.equal(1);
+
+         describe('there are six <li> children')
+             .expect($('li').elements.length).to.equal(6);
+         describe('there are three even <li> children (filtered)')
+             .expect($('li').filter(':nth-child(2n)').elements.length).to.equal(3);
+         describe('there are three even <li> children')
+             .expect($('li:nth-child(2n)').elements.length).to.equal(3);
+         describe('there are two <div> elements')
+             .expect($('div').elements.length).to.equal(2);
+
+         describe('invalid css access on existing element')
+             .expect($('div').css('background-colorz')).to.be.typeOf('undefined');
+         describe('invalid css access on non-existing element')
+             .expect($('divz').css('background-colorz')).to.be.typeOf('undefined');
+
+         describe('$().css() should return an object')
+             .expect($('div').$getAt(-1).css()).to.be.an(Object);
+         describe('background-color css can be accessed as string')
+             .expect($('div').$getAt(-1).css()['background-color']).to.be.a('string');
+         describe('background-color is red')
+             .expect($('div').$getAt(-1).css()['background-color']).to.equal('red');
+
+         $('div').$getAt(-1).css({ backgroundColor: 'green' });
+
+         describe('background-color was properly set to green')
+             .expect($('div').$getAt(-1).css()['background-color']).to.equal('green');
+
+         describe('0 is not an object')
+             .expect(0).not().to.be.an(Object);
+         describe('object instance of String should be a String')
+             .expect(new String('test')).to.be.a(String);
+         describe('string literal should not be a String')
+             .expect('test').not().to.be.a(String);
+
+         describe('$getAt return value should be a DomSurfer')
+             .expect($('div').$getAt(0)).to.be.a(DomSurfer);
+         describe('getAt return value should be an Element')
+             .expect($('div').getAt(0)).to.be.an(Element);
+        </script>
+    </body>
+</html>
