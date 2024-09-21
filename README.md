@@ -7,7 +7,7 @@ SPDX-License-Identifier: GFDL-1.3-only
 # Dom Surfer
 
 <p align="center">
-    <img src="logo.jpg" alt="Dom Surfer logo">
+    <img src="logo.jpg" alt="Dom Surfer logo" width="600">
 </p>
 
 ## About
