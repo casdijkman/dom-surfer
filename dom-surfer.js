@@ -112,6 +112,14 @@ export class DomSurfer {
     return new DomSurfer(this.elements[0]);
   }
 
+  getAt (index) { // named `getAt` because `get` is a reserved name
+    return this.elements.at(index);
+  }
+
+  $getAt (index) {
+    return new DomSurfer(this.elements.at(index));
+  }
+
   any () {
     return this.elements.length > 0;
   }
@@ -167,6 +175,7 @@ export class DomSurfer {
       return style[value];
     } else if (DomSurfer.isObject(value)) {
       for (const [key, objValue] of Object.entries(value)) {
+        // eslint-disable-next-line no-unneeded-ternary
         style[key] = objValue ? objValue : null;
       }
     }
