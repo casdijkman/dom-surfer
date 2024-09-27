@@ -6,13 +6,14 @@ SPDX-License-Identifier: GFDL-1.3-only
 
 # `$('dom-surfer')`
 
+[![js-semistandard-style](https://raw.githubusercontent.com/standard/semistandard/master/badge.svg)](https://github.com/standard/semistandard)
+[![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/@casd/dom-surfer)
+<hr>
 <p align="center">
     <img src="logo.jpg" alt="Dom Surfer logo" width="600">
 </p>
 
 ## About
-
-[![js-semistandard-style](https://raw.githubusercontent.com/standard/semistandard/master/badge.svg)](https://github.com/standard/semistandard)
 
 Dom Surfer is a javascript library for selecting and operating on document object model
 (DOM) elements in the browser.
