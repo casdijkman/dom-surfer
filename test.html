@@ -28,7 +28,7 @@ SPDX-License-Identifier: GPL-3.0-only
         <script type="module">
          import $, { DomSurfer } from './dom-surfer.js';
          import { describe, expect } from './expect.js';
-         Object.assign(window, { $, DomSurfer });
+         Object.assign(window, { $, DomSurfer, describe, expect });
 
          describe('expect amount of unordered lists on page to be one')
              .expect($('ul').elements.length).to.equal(1);
@@ -61,6 +61,8 @@ SPDX-License-Identifier: GPL-3.0-only
 
          describe('0 is not an object')
              .expect(0).not().to.be.an(Object);
+         describe('0 is a number')
+             .expect(0).to.be.a('number');
          describe('object instance of String should be a String')
              .expect(new String('test')).to.be.a(String);
          describe('string literal should not be a String')

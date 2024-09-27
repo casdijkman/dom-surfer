@@ -4,6 +4,14 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
+/*
+   This library enables you to write simple assertions with the following syntax:
+
+     import { describe, expect } from './expect.js';
+     describe('0 is a number').expect(0).to.be.a('number');           // => true
+     describe('0 is not an object').expect(0).not().to.be.an(Object); // => true
+ */
+
 class Assertion {
   constructor ({ value, description }) {
     this.value = value;
@@ -11,14 +19,13 @@ class Assertion {
       ...(typeof description === 'string' ? [description] : [])
     ];
 
+    this.to = this;
     this.be = {
       a: this._expectToBeA.bind(this),
       an: this._expectToBeA.bind(this),
       typeOf: this._expectToBeATypeOf.bind(this),
       instanceOf: this._expectToBeAnInstanceOf.bind(this)
     };
-
-    this.to = this;
   }
 
   /*
@@ -45,7 +52,9 @@ class Assertion {
 
   _expectToBeAnInstanceOf (expected) {
     return this.execute(() => {
-      this.descriptions.push(`Expected instanceof ${expected?.name || expected}, got ${this.value}`);
+      this.descriptions.push(
+        `Expected instanceof ${expected?.name || expected}, got ${this.value}`
+      );
       return this.value instanceof (expected);
     });
   }
