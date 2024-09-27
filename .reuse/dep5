@@ -3,6 +3,6 @@ Upstream-Name: Dom Surfer
 Upstream-Contact: Cas Dijkman <info@cdijkman.nl>
 Source: https://cdijkman.nl
 
-Files: package.json yarn.lock logo.jpg
+Files: package.json yarn.lock logo.jpg favicon.ico
 Copyright: 2024 Cas Dijkman <info@cdijkman.nl>
 License: GPL-3.0-only
