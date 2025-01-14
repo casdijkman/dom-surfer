@@ -6,8 +6,9 @@ SPDX-License-Identifier: GFDL-1.3-only
 
 # `$('dom-surfer')`
 
-[![js-semistandard-style](https://raw.githubusercontent.com/standard/semistandard/master/badge.svg)](https://github.com/standard/semistandard)
-[![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/@casd/dom-surfer)
+[<img src="https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white" height="30" />](https://www.npmjs.com/package/@casd/dom-surfer)
+[<img src="https://raw.githubusercontent.com/standard/semistandard/master/badge.svg" height="30" />](https://github.com/standard/semistandard)
+
 <hr>
 <p align="center">
     <img src="logo.jpg" alt="Dom Surfer logo" width="600">
@@ -38,7 +39,9 @@ Using Dom Surfer, what may take three lines of plain javascript can be a one-lin
 
 ```javascript
 document.querySelectorAll('.js').forEach((element) => {
-    if (Number(element.innerText) < 20) element.classList.add('bg-red');
+    if (Number(element.innerText) < 20) {
+      element.classList.add('bg-red');
+    }
 });
 ```
 
