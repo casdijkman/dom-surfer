@@ -38,8 +38,18 @@ class Assertion {
   }
 
   equal (expected) {
-    this.descriptions.push(`Expected ${expected}, got ${this.value}`);
+    this._addDescription({ expected });
+    if ([expected, this.value].some((x) => typeof x === 'symbol')) {
+      this.descriptions.push('Symbols are always unique');
+    }
     return this.execute(() => this.value === expected);
+  }
+
+  _addDescription ({ type, expected, got = this.value }) {
+    const typeString = type ? ` ${type}` : '';
+    const expectedString = valueToStringSafe(expected);
+    const gotString = valueToStringSafe(got);
+    this.descriptions.push(`Expected${typeString} ${expectedString}, got ${gotString}`);
   }
 
   _expectToBeA (expected) {
@@ -52,16 +62,15 @@ class Assertion {
 
   _expectToBeAnInstanceOf (expected) {
     return this.execute(() => {
-      this.descriptions.push(
-        `Expected instanceof ${expected?.name || expected}, got ${this.value}`
-      );
+      this._addDescription({ type: 'instanceof', expected: expected?.name || expected });
       return this.value instanceof (expected);
     });
   }
 
   _expectToBeATypeOf (expected) {
     return this.execute(() => {
-      this.descriptions.push(`Expected typeof ${expected}, got ${typeof this.value}`);
+      this._addDescription({ type: 'typeof', expected });
+
       // eslint-disable-next-line valid-typeof
       return typeof this.value === expected;
     });
@@ -74,6 +83,16 @@ class Assertion {
       : 'No description';
     console.assert(result, description);
     return Boolean(result);
+  }
+}
+
+function valueToStringSafe (value) {
+  if (value === '') {
+    return '<empty string>';
+  } else {
+    const stringValue = String(value);
+    console.assert(stringValue, 'could not convert value to string', value);
+    return stringValue || 'unknown';
   }
 }
 

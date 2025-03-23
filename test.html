@@ -72,6 +72,14 @@ SPDX-License-Identifier: GPL-3.0-only
              .expect($('div').$getAt(0)).to.be.a(DomSurfer);
          describe('getAt return value should be an Element')
              .expect($('div').getAt(0)).to.be.an(Element);
+
+         describe('$().innerHtml() should return a string')
+             .expect($('ul').innerHtml()).to.be.a('string');
+         describe('$().innerHTML() is an alias for $().innerHtml()')
+             .expect($('ul').innerHtml()).to.equal($('ul').innerHTML());
+
+         describe('Symbol should be a symbol').expect(Symbol()).to.be.a('symbol');
+         describe('this test should fail').expect(Symbol()).to.equal(Symbol());
         </script>
     </body>
 </html>
