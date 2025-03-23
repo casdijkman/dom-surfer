@@ -309,8 +309,12 @@ export class DomSurfer {
   }
 
   innerHtml (html = null) {
-    if (html === null) return this.first().innerHtml;
+    if (html === null) return this.first().innerHTML;
     return this.each((element) => { element.innerHTML = html; });
+  }
+
+  innerHTML (html = null) {
+    return this.innerHtml(html);
   }
 
   innerText (text = null) {
