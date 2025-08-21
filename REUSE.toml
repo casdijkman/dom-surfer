@@ -1,0 +1,10 @@
+version = 1
+SPDX-PackageName = "Dom Surfer"
+SPDX-PackageSupplier = "Cas Dijkman <info@cdijkman.nl>"
+SPDX-PackageDownloadLocation = "https://cdijkman.nl"
+
+[[annotations]]
+path = ["package.json", "yarn.lock", "logo.jpg", "favicon.ico", ".nvmrc"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024 Cas Dijkman <info@cdijkman.nl>"
+SPDX-License-Identifier = "GPL-3.0-only"
