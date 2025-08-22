@@ -85,6 +85,21 @@ SPDX-License-Identifier: GPL-3.0-only
          document.querySelectorAll('.js').forEach((element) => {
              if (Number(element.innerText) < 20) element.classList.add('bg-red');
          });
+
+         /*
+          *  Alternate way of getting class methods:
+          *    Object.getOwnPropertyNames(Object.getPrototypeOf($()))
+          */
+         const classMethods = Object
+             .getOwnPropertyNames(DomSurfer.prototype)
+             .filter((x) => x !== 'constructor')
+
+         console.log(
+             [
+                 'DomSurfer class methods:',
+                 ...classMethods.map((x, index) => `${index + 1}: ${x}`)
+             ].join('\n')
+         );
         </script>
 
         <style>
