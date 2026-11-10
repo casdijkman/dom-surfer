@@ -23,11 +23,11 @@ function print_sloc_count() {
 
 # jQuery
 [[ -f jquery.js ]] && rm jquery.js
-wget https://cdn.jsdelivr.net/npm/jquery@3.7/dist/jquery.js &>/dev/null
+wget https://cdn.jsdelivr.net/npm/jquery@v4.0.0/dist/jquery.js &>/dev/null
 
 # Sizzle
 [[ -f sizzle.js ]] && rm sizzle.js
-wget https://cdn.jsdelivr.net/npm/sizzle@2.3/dist/sizzle.js &>/dev/null
+wget https://cdn.jsdelivr.net/npm/sizzle@2.3.10/dist/sizzle.js &>/dev/null
 
 if [[ ! -f ../dom-surfer.js ]] || [[ ! -f jquery.js ]] || [[ ! -f sizzle.js ]]; then
     echo "Could not find required files"
