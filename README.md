@@ -62,7 +62,7 @@ See the [API documentation file](./docs/api.md) for an overview and description 
 - **Collections are static, not live.** Elements are captured and evaluated *immediately* at query time (via `querySelectorAll` etc.), so later DOM changes are not reflected. Re-query to refresh.
 - **Collections aren't traceable.** There's no way to reconstruct a collection by replaying `.add()` calls — the stored elements are the result, not a record of the query.
 - **Single-element methods.** `find`, `hasClass`, `attr`, `data`, `css`, `parent`, `children`, `closest` operate on `first()`. `find`/`hasClass` assume just one element.
-- **Browser-only.** `isElement` depends on the global `Element`.
+- **Browser-only.** `DomSurfer` is designed to work with the DOM, which exists in your browser rather than in Node, for example.
 
 ## Copyright and license
 

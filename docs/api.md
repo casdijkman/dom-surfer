@@ -4,11 +4,12 @@ SPDX-FileCopyrightText: 2025 Cas Dijkman
 SPDX-License-Identifier: GFDL-1.3-only
 -->
 
-## API
+# API Reference
 
-# DomSurfer API Reference
+## Overview
 
-A lightweight jQuery-like DOM utility. `$()` creates a `DomSurfer` instance; methods that mutate or traverse return `this` (chainable) unless noted otherwise. Methods prefixed with `$` wrap results in a new `DomSurfer` instance instead of returning raw DOM nodes.
+`$()` creates a `DomSurfer` instance; methods that mutate or traverse return `this` (chainable) unless noted otherwise.
+Methods prefixed with `$` wrap results in a new `DomSurfer` instance instead of returning raw DOM nodes.
 
 ---
 
